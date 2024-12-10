@@ -1,0 +1,25 @@
+/* 
+Cả cái chương trình này dùng để vẽ cái background mà nó di chuyển đc
+Đi cùng với canvas.js 
+*/
+
+
+.canvas-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: white;
+    position: relative;
+}
+
+.draggable-canvas {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-size: 20px 20px;
+    cursor: move;
+    touch-action: none;
+    z-index: 0;
+}

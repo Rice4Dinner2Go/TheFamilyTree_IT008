@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Family Tree - Main Menu</title>
+    <link rel="stylesheet" href="style/MainMenu.css" />
+    <link rel="stylesheet" href="style/PageTransition.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Family Tree</h1>
+      <div class="button-container">
+        <button class="menu-button start-button" onclick="showNewTreeForm()">
+          Make a new Tree
+        </button>
+        <button class="menu-button" onclick="showImportForm()">
+          Import a Tree
+        </button>
+      </div>
+    </div>
+
+    <!-- New Tree Form -->
+    <div class="popup-overlay" id="popupForm-newTree">
+      <div class="popup-form">
+        <h2>Make for who?</h2>
+        <form id="newTreeForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">@Gmail</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required />
+          </div>
+          <div class="form-buttons">
+            <button
+              type="button"
+              class="cancel-btn"
+              onclick="hideNewTreeForm()"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Import Popup Form -->
+    <div class="popup-overlay" id="popupForm-import">
+      <div class="popup-form">
+        <h2>Import Options</h2>
+        <div class="import-options">
+          <button class="import-option-btn" onclick="importFromJson()">
+            Import from JSON
+          </button>
+          <button class="import-option-btn" onclick="importFromExcel()">
+            Import from Excel
+          </button>
+          <button class="cancel-btn" onclick="hideImportForm()">Return</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script/PageTransition.js"></script>
+    <script src="script/PopupForm.js"></script>
+    <script>
+      document
+        .getElementById("newTreeForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Để tương tác với data sau
+          goToPage("tree");
+        });
+    </script>
+  </body>
+</html>
